@@ -17,7 +17,7 @@ const WheelComponent = () => {
 
   const handleSpinClick = () => {
     if (!mustSpin) {
-      const newPrizeNumber = Math.floor(Math.random() * data.length);
+      const newPrizeNumber = Math.floor(Math.random() * wheelData.length);
       setPrizeNumber(newPrizeNumber);
       setMustSpin(true);
     }
@@ -75,6 +75,9 @@ const WheelComponent = () => {
             backgroundColors={wheelBg}
             onStopSpinning={() => {
               setMustSpin(false);
+              setTimeout(() => {
+                setPrizeNumber(null);
+              }, 5000);
 
               setSpinStop(true);
             }}
